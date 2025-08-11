@@ -300,12 +300,12 @@ mcpServers:
     env:
       HUBSPOT_ACCESS_TOKEN: "${HUBSPOT_ACCESS_TOKEN}"
     # Alternative: direct HTTP transport (if supported by your LibreChat version)
-    transport:
-      type: "http"
-      baseURL: "https://mcp-hubspot-librechat-bridge-9f210a56b401.herokuapp.com"
-      headers:
-        Content-Type: "application/json"
-      timeout: 30000
+    # transport:
+    #   type: "http"
+    #   baseURL: "https://mcp-hubspot-librechat-bridge-9f210a56b401.herokuapp.com"
+    #   headers:
+    #     Content-Type: "application/json"
+    #   timeout: 30000
 
   supabase:
     type: streamable-http
