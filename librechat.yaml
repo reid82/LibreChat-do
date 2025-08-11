@@ -190,13 +190,6 @@ endpoints:
   #   # (optional) Agent Capabilities available to all users. Omit the ones you wish to exclude. Defaults to list below.
   #   capabilities: ["execute_code", "file_search", "actions", "tools"]
   custom:
-  - name: 'HubSpot'
-          baseURL: 'https://678d93fb840e.ngrok-free.app'
-          apiKey: '${HUBSPOT_ACCESS_TOKEN}'
-          models:
-              default: ['hubspot-tools']
-          modelDisplayLabel: 'HubSpot CRM'
-          titleConvo: true
     # Groq Example
     # - name: 'groq'
     #   apiKey: '${GROQ_API_KEY}'
@@ -293,62 +286,13 @@ endpoints:
     #   modelDisplayLabel: 'Portkey'
     #   iconURL: https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/rjqy7ghvjoiu4cd1xjbf
 mcpServers:
-  # hubspot:
-  #   hubspot:
-  #   name: "HubSpot CRM"
-  #   description: "Access HubSpot CRM data including contacts, companies, deals, workflows, and more"
-  #   # For remote MCP servers, LibreChat uses command + args to spawn processes
-  #   # Since we have an HTTP bridge, we need to configure it as a proxy/bridge
-  #   command: "curl"
-  #   args: [
-  #     "-X", "GET",
-  #     "https://mcp-hubspot-librechat-bridge-9f210a56b401.herokuapp.com/health"
-  #   ]
-  #   env:
-  #     HUBSPOT_ACCESS_TOKEN: "${HUBSPOT_ACCESS_TOKEN}"
-  #   # Alternative: direct HTTP transport (if supported by your LibreChat version)
-  #   # transport:
-  #   #   type: "http"
-  #   #   baseURL: "https://mcp-hubspot-librechat-bridge-9f210a56b401.herokuapp.com"
-  #   #   headers:
-  #   #     Content-Type: "application/json"
-  #   #   timeout: 30000
-
-  supabase:
-    type: streamable-http
-    url: "https://supabase-mcp.yourdomain.com/mcp"
-    customUserVars:
-      SUPABASE_PAT:
-        title: "Supabase Personal Access Token"
-        description: "Project-scoped, read-only first"
-    headers:
-      Authorization: "Bearer {{SUPABASE_PAT}}"
-
-  ms365:
-    type: streamable-http
-    url: "https://m365-mcp.yourdomain.com/mcp"
-    serverInstructions: true
-
-  stripe:
-    type: streamable-http
-    url: "https://stripe-mcp.yourdomain.com/mcp"
-    serverInstructions: true
-
-  xero:
-    type: streamable-http
-    url: "https://xero-mcp.yourdomain.com/mcp"
-    serverInstructions: true
-
-  gmail:
-    type: streamable-http
-    url: "https://gmail-mcp.yourdomain.com/mcp"
-    startup: false  # prompts user to auth on first use
-    serverInstructions: true
-
-  apple-health:
-    type: streamable-http
-    url: "https://apple-health-mcp.yourtunnel.com/mcp"  # local tunnel (Tailscale/Cloudflare)
-    serverInstructions: true
+  hubspot:
+    name: "HubSpot CRM"
+    description: "Access HubSpot CRM including contacts, companies, deals, properties, workflows, and more"
+    command: "npx"
+    args: ["-y", "@hubspot/mcp-server"]
+    env:
+      PRIVATE_APP_ACCESS_TOKEN: "${HUBSPOT_ACCESS_TOKEN}"
     
   # fileConfig:
 #   endpoints:
