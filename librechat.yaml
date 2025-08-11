@@ -190,6 +190,13 @@ endpoints:
   #   # (optional) Agent Capabilities available to all users. Omit the ones you wish to exclude. Defaults to list below.
   #   capabilities: ["execute_code", "file_search", "actions", "tools"]
   custom:
+  - name: 'HubSpot'
+          baseURL: 'https://678d93fb840e.ngrok-free.app'
+          apiKey: '${HUBSPOT_ACCESS_TOKEN}'
+          models:
+              default: ['hubspot-tools']
+          modelDisplayLabel: 'HubSpot CRM'
+          titleConvo: true
     # Groq Example
     # - name: 'groq'
     #   apiKey: '${GROQ_API_KEY}'
