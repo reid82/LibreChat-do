@@ -287,9 +287,25 @@ endpoints:
     #   iconURL: https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/rjqy7ghvjoiu4cd1xjbf
 mcpServers:
   hubspot:
-    type: streamable-http
-    url: "https://hubspot-mcp.yourdomain.com/mcp"
-    serverInstructions: true
+    hubspot:
+    name: "HubSpot CRM"
+    description: "Access HubSpot CRM data including contacts, companies, deals, workflows, and more"
+    # For remote MCP servers, LibreChat uses command + args to spawn processes
+    # Since we have an HTTP bridge, we need to configure it as a proxy/bridge
+    command: "curl"
+    args: [
+      "-X", "GET",
+      "https://mcp-hubspot-librechat-bridge-9f210a56b401.herokuapp.com/health"
+    ]
+    env:
+      HUBSPOT_ACCESS_TOKEN: "${HUBSPOT_ACCESS_TOKEN}"
+    # Alternative: direct HTTP transport (if supported by your LibreChat version)
+    transport:
+      type: "http"
+      baseURL: "https://mcp-hubspot-librechat-bridge-9f210a56b401.herokuapp.com"
+      headers:
+        Content-Type: "application/json"
+      timeout: 30000
 
   supabase:
     type: streamable-http
