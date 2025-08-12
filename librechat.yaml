@@ -296,7 +296,7 @@ mcpServers:
   supabase:
       command: "npx"
       args: ["-y", "@supabase/mcp-server-supabase@latest", "--access-token", "${SUPABASE_PERSONAL_ACCESS_TOKEN}"]
-  home_assistant:
+  homeassistant:
       command: "mcp-proxy"
       env:
         SSE_URL: "https://jwbwznpp7dzhv8hd6byqplfwdl0nrenn.ui.nabu.casa/mcp_server/sse"
