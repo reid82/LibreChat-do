@@ -180,7 +180,7 @@ endpoints:
   #   retrievalModels: ["gpt-4-turbo-preview"]
   #   # (optional) Assistant Capabilities available to all users. Omit the ones you wish to exclude. Defaults to list below.
   #   capabilities: ["code_interpreter", "retrieval", "actions", "tools", "image_vision"]
-  # agents:
+  agents:
   #   # (optional) Default recursion depth for agents, defaults to 25
   #   recursionLimit: 50
   #   # (optional) Max recursion depth for agents, defaults to 25
@@ -188,7 +188,7 @@ endpoints:
   #   # (optional) Disable the builder interface for agents
   #   disableBuilder: false
   #   # (optional) Agent Capabilities available to all users. Omit the ones you wish to exclude. Defaults to list below.
-  #   capabilities: ["execute_code", "file_search", "actions", "tools"]
+    capabilities: ["execute_code", "file_search", "actions", "tools"]
   custom:
     # Groq Example
     # - name: 'groq'
@@ -296,14 +296,13 @@ mcpServers:
   supabase:
       command: "npx"
       args: ["-y", "@supabase/mcp-server-supabase@latest", "--access-token", "${SUPABASE_PERSONAL_ACCESS_TOKEN}"]
-  homeassistant:
-      command: "mcp-proxy"
-      env:
-        SSE_URL: "https://jwbwznpp7dzhv8hd6byqplfwdl0nrenn.ui.nabu.casa/mcp_server/sse"
-        API_ACCESS_TOKEN: "${HOMEASSISTANT_TOKEN}"
-      
-    
-    
+  home-assistant:
+    type: sse
+    url: "https://jwbwznpp7dzhv8hd6byqplfwdl0nrenn.ui.nabu.casa/mcp_server/sse"
+    headers:
+      Authorization: "Bearer ${HOMEASSISTANT_TOKEN}"
+    serverInstructions: true
+    timeout: 30000
     
   # fileConfig:
 #   endpoints:
