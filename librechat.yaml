@@ -311,12 +311,14 @@ mcpServers:
   meta-ads:
     type: streamable-http
     url: https://mcp.pipeboard.co/meta-ads-mcp
+    headers:
+      Authorization: "Bearer ${PIPEBOARD_API_TOKEN}"
     serverInstructions: true
     timeout: 120000
     initTimeout: 20000
 
   fb-ads-library:
-    type: sse
+    type: streamable-http
     url: https://mcp.apify.com/?actors=igolaizola/facebook-ad-library-scraper
     headers:
       Authorization: "Bearer ${APIFY_API_TOKEN}"
