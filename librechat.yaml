@@ -307,6 +307,7 @@ mcpServers:
         title: "Long Home Assistant Token"
         description: "Paste your issued token"
     serverInstructions: true
+    startup: false
     timeout: 30000
   facebook-ads-performance:
     type: 'http'
