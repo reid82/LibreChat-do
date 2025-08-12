@@ -308,6 +308,22 @@ mcpServers:
     url: 'https://alexell-facebook-mcp-3833a0b3bde8.herokuapp.com/mcp'
     timeout: 60000
     
+  meta-ads:
+    type: streamable-http
+    url: https://mcp.pipeboard.co/meta-ads-mcp
+    serverInstructions: true
+    timeout: 120000
+    initTimeout: 20000
+
+  fb-ads-library:
+    type: sse
+    url: https://mcp.apify.com/?actors=igolaizola/facebook-ad-library-scraper
+    headers:
+      Authorization: "Bearer ${APIFY_API_TOKEN}"
+    serverInstructions: true
+    timeout: 120000
+    initTimeout: 20000
+    
   # fileConfig:
 #   endpoints:
 #     assistants:
