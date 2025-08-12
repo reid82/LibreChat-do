@@ -303,6 +303,9 @@ mcpServers:
       Authorization: "Bearer ${HOMEASSISTANT_TOKEN}"
     serverInstructions: true
     timeout: 30000
+  facebook-ads-performance:
+    url: 'https://alexell-facebook-mcp-3833a0b3bde8.herokuapp.com/mcp'
+    timeout: 30000
     
   # fileConfig:
 #   endpoints:
