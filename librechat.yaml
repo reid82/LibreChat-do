@@ -301,7 +301,11 @@ mcpServers:
     type: sse
     url: "https://jwbwznpp7dzhv8hd6byqplfwdl0nrenn.ui.nabu.casa/mcp_server/sse"
     headers:
-      Authorization: "Bearer ${HOMEASSISTANT_TOKEN}"
+      Authorization: "Bearer {{USER_HOMEASSISTANT_TOKEN}}"
+    customUserVars:
+      USER_HOMEASSISTANT_TOKEN:
+        title: "Long Home Assistant Token"
+        description: "Paste your issued token"
     serverInstructions: true
     timeout: 30000
   facebook-ads-performance:
