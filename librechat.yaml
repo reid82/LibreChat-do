@@ -304,7 +304,6 @@ mcpServers:
     serverInstructions: true
     timeout: 30000
   facebook-ads-performance:
-    type: sse
     url: 'https://alexell-facebook-mcp-3833a0b3bde8.herokuapp.com/mcp'
     timeout: 30000
     
