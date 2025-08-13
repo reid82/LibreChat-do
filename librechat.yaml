@@ -293,10 +293,18 @@ mcpServers:
     command: "npx"
     args: ["-y", "@hubspot/mcp-server"]
     env:
-      PRIVATE_APP_ACCESS_TOKEN: "${HUBSPOT_ACCESS_TOKEN}"
+      PRIVATE_APP_ACCESS_TOKEN: "{{HUBSPOT_TOKEN}}"
+    customUserVars:
+      HUBSPOT_TOKEN:
+        title: "Hubspot Private Token"
+        description: "Paste your token"
   supabase:
       command: "npx"
-      args: ["-y", "@supabase/mcp-server-supabase@latest", "--access-token", "${SUPABASE_PERSONAL_ACCESS_TOKEN}"]
+      args: ["-y", "@supabase/mcp-server-supabase@latest", "--access-token", "{{SUPABASE_PERSONAL_ACCESS_TOKEN}}"]
+      customUserVars:
+        SUPABASE_PERSONAL_ACCESS_TOKEN:
+          title: "Supabase Private Token"
+          description: "Paste your token"
   home-assistant:
     type: sse
     url: "https://jwbwznpp7dzhv8hd6byqplfwdl0nrenn.ui.nabu.casa/mcp_server/sse"
