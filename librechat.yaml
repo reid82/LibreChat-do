@@ -323,6 +323,8 @@ mcpServers:
   #   timeout: 120000
   #   initTimeout: 20000
 
+  
+
   meta_ads_npx:
     type: stdio
     command: npx
