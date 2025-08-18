@@ -344,7 +344,10 @@ mcpServers:
   #   timeout: 120000
   #   initTimeout: 20000
 
-  
+  fb-ads-library:
+    name: "Facebook Ads Library (disabled)"
+    command: "echo"
+    args: ["Stub server – no connection"]
 
   meta_ads_npx:
     type: stdio
