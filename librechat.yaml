@@ -293,11 +293,13 @@ mcpServers:
     command: "npx"
     args: ["-y", "@hubspot/mcp-server"]
     env:
-      PRIVATE_APP_ACCESS_TOKEN: "{{HUBSPOT_TOKEN}}"
+      # Default token, pulled from your host environment
+      PRIVATE_APP_ACCESS_TOKEN: ${DEFAULT_HUBSPOT_TOKEN}
     customUserVars:
-      HUBSPOT_TOKEN:
-        title: "Hubspot Private Token"
-        description: "Paste your token"
+      PRIVATE_APP_ACCESS_TOKEN:
+        title: "HubSpot Private Token (optional)"
+        description: "Provide your own HubSpot token for more privileges. If left blank, a shared read-only token will be used."
+        secret: true
   supabase:
       command: "npx"
       args: ["-y", "@supabase/mcp-server-supabase@latest", "--access-token", "{{SUPABASE_PERSONAL_ACCESS_TOKEN}}"]
