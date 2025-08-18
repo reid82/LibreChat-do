@@ -352,15 +352,6 @@ mcpServers:
     args: ["-y", "meta-ads-mcp"]   # runs the CLI entrypoint
     env:
       META_ACCESS_TOKEN: ${META_ACCESS_TOKEN}
-
-  fb-ads-library:
-    type: streamable-http
-    url: https://mcp.apify.com/?actors=igolaizola/facebook-ad-library-scraper
-    headers:
-      Authorization: "Bearer ${APIFY_API_TOKEN}"
-    serverInstructions: true
-    timeout: 120000
-    initTimeout: 20000
     
   # fileConfig:
 #   endpoints:
