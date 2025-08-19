@@ -309,13 +309,14 @@ mcpServers:
       - "--tools=all"
       - "--api-key={{STRIPE_SECRET_KEY}}"
     env:
-      # Default token, pulled from your host environment
+      # Optional: default key pulled from your host environment
       STRIPE_SECRET_KEY: ${DEFAULT_STRIPE_SECRET_KEY}
     customUserVars:
       STRIPE_SECRET_KEY:
-        title: "Stipre Secret Key"
-        description: "Provide your own HubSpot token for more privileges. If left blank, a shared read-only token will be used."
+        title: "Stripe Secret Key"
+        description: "Provide your Stripe secret key. If left blank, a shared read-only key will be used."
         secret: true
+      
   # hubspot:
   #   name: "HubSpot CRM"
   #   description: "Access HubSpot CRM including contacts, companies, deals, properties, workflows, and more"
