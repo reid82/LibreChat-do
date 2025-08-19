@@ -312,12 +312,12 @@ mcpServers:
   #       title: "Hubspot Private Token"
   #       description: "Paste your token"
   supabase:
-      command: "npx"
-      args: ["-y", "@supabase/mcp-server-supabase@latest", "--access-token", "{{SUPABASE_PERSONAL_ACCESS_TOKEN}}"]
-      customUserVars:
-        SUPABASE_PERSONAL_ACCESS_TOKEN:
-          title: "Supabase Private Token"
-          description: "Paste your token"
+    command: "npx"
+    args: ["-y", "@supabase/mcp-server-supabase@latest", "--access-token", "{{SUPABASE_PERSONAL_ACCESS_TOKEN}}"]
+    customUserVars:
+      SUPABASE_PERSONAL_ACCESS_TOKEN:
+        title: "Supabase Private Token"
+        description: "Paste your token"
   home-assistant:
     type: sse
     url: "https://jwbwznpp7dzhv8hd6byqplfwdl0nrenn.ui.nabu.casa/mcp_server/sse"
